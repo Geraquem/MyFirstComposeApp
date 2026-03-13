@@ -11,8 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.mmfsin.myfirstcomposeapp.components.MyTextField
-import com.mmfsin.myfirstcomposeapp.components.MyTexts
+import com.mmfsin.myfirstcomposeapp.components.MyProgressBar
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +25,7 @@ class MainActivity : ComponentActivity() {
 //                        name = "Android",
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
-                    MyTextField(Modifier.padding(innerPadding))
+                    MyProgressBar(Modifier.padding(innerPadding))
                 }
             }
         }
