@@ -20,8 +20,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mmfsin.myfirstcomposeapp.R
+
+@Preview(showBackground = true)
+@Composable
+fun Preview() {
+    MyTextField(Modifier)
+}
 
 @Composable
 fun MyTextField(modifier: Modifier) {
@@ -35,6 +42,8 @@ fun MyTextField(modifier: Modifier) {
         MyPasswordTextField(value) { value = it }
         Spacer(Modifier.padding(vertical = 8.dp))
         MyOutlinedTextField(value) { value = it }
+        Spacer(Modifier.padding(vertical = 8.dp))
+        MyBasicTextField(value) { value = it }
     }
 }
 
@@ -68,10 +77,13 @@ fun MyPasswordTextField(value: String, onValueChange: (String) -> Unit) {
 
 @Composable
 fun MyOutlinedTextField(value: String, onValueChange: (String) -> Unit) {
-//    OutlinedTextField(value = value, onValueChange = { onValueChange(it) }, label = {
-//        Text("Introduce tu email")
-//    })
+    OutlinedTextField(value = value, onValueChange = { onValueChange(it) }, label = {
+        Text("Introduce tu email")
+    })
+}
 
+@Composable
+fun MyBasicTextField(value: String, onValueChange: (String) -> Unit) {
     BasicTextField(value = value, onValueChange = { onValueChange(it) })
 }
 
