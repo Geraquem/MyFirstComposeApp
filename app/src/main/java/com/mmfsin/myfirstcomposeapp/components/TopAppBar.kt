@@ -2,6 +2,7 @@
 
 package com.mmfsin.myfirstcomposeapp.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -15,12 +16,12 @@ import androidx.compose.ui.unit.dp
 import com.mmfsin.myfirstcomposeapp.R
 
 @Composable
-fun MyTopAppBar(modifier: Modifier = Modifier) {
+fun MyTopAppBar(onNavSelected: () -> Unit) {
     TopAppBar(
         title = { Text("My app") },
         navigationIcon = {
             Icon(
-                modifier = Modifier.padding(horizontal = 8.dp),
+                modifier = Modifier.padding(horizontal = 8.dp).clickable { onNavSelected() },
                 painter = painterResource(R.drawable.ic_android_black_24dp),
                 contentDescription = null
             )
