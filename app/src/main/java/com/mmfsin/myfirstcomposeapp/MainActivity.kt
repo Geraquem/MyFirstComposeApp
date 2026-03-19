@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
+import com.mmfsin.myfirstcomposeapp.components.MyElevatedCard
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
@@ -39,45 +40,51 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyFirstComposeAppTheme {
-                val drawerState = rememberDrawerState(DrawerValue.Closed)
+//                ScaffoldExample()
+                Scaffold() { innerPadding ->
+                    MyElevatedCard(modifier = Modifier.padding(innerPadding))
+                }
+            }
+        }
+    }
 
-                val snackbarHostState = remember { SnackbarHostState() }
-                val scope = rememberCoroutineScope()
-
-                MyNavigationDrawer(drawerState) {
-                    Scaffold(
-                        modifier = Modifier.fillMaxSize(),
-                        topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
-                        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-                        floatingActionButton = {
-                            MyFloatingActionButton {
-                                Log.i("FloatingButtonClick", "Clickado")
-                            }
-                        },
-                        floatingActionButtonPosition = FabPosition.Center,
-                        bottomBar = { MyBottomNavBar() },
-
-                        ) { innerPadding ->
-                        Box(
-                            modifier = Modifier.fillMaxSize().padding(innerPadding)
-                                .background(Color.Cyan),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(text = "Esta es mi screen", modifier = Modifier.clickable {
-                                scope.launch {
-                                    val result = snackbarHostState.showSnackbar(
-                                        "Hola desde Compose",
-                                        actionLabel = "Deshacer",
-                                        duration = SnackbarDuration.Short
-                                    )
-                                    val text = if (result == SnackbarResult.ActionPerformed) {
-                                        "Sí pulsó deshacer"
-                                    } else "NO pulsó deshacer"
-                                    Log.i("Snackbar", text)
-                                }
-                            })
-                        }
+    @Composable
+    fun ScaffoldExample() {
+        val drawerState = rememberDrawerState(DrawerValue.Closed)
+        val snackbarHostState = remember { SnackbarHostState() }
+        val scope = rememberCoroutineScope()
+        MyNavigationDrawer(drawerState) {
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
+                snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+                floatingActionButton = {
+                    MyFloatingActionButton {
+                        Log.i("FloatingButtonClick", "Clickado")
                     }
+                },
+                floatingActionButtonPosition = FabPosition.Center,
+                bottomBar = { MyBottomNavBar() },
+
+                ) { innerPadding ->
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(innerPadding)
+                        .background(Color.Cyan),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = "Esta es mi screen", modifier = Modifier.clickable {
+                        scope.launch {
+                            val result = snackbarHostState.showSnackbar(
+                                "Hola desde Compose",
+                                actionLabel = "Deshacer",
+                                duration = SnackbarDuration.Short
+                            )
+                            val text = if (result == SnackbarResult.ActionPerformed) {
+                                "Sí pulsó deshacer"
+                            } else "NO pulsó deshacer"
+                            Log.i("Snackbar", text)
+                        }
+                    })
                 }
             }
         }
