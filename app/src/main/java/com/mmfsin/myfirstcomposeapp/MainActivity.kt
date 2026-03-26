@@ -20,21 +20,17 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
-import com.mmfsin.myfirstcomposeapp.components.MyCustomDialog
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
-import com.mmfsin.myfirstcomposeapp.components.model.PokemonCombat
+import com.mmfsin.myfirstcomposeapp.components.advance.MyDerivatedState
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 import kotlinx.coroutines.launch
 
@@ -47,17 +43,17 @@ class MainActivity : ComponentActivity() {
 //                ScaffoldExample()
 
                 Scaffold { innerPadding ->
-//                    MyTimePicker(modifier = Modifier.padding(innerPadding))
+                    MyDerivatedState(modifier = Modifier.padding(innerPadding))
 
-                    var showDialog by remember { mutableStateOf(true) }
-                    val pokemonCombat = PokemonCombat("Pikachu", "Gengar")
-
-                    MyCustomDialog(
-                        pokemonCombat = pokemonCombat,
-                        showDialog = showDialog
-                    ) {
-                        showDialog = false
-                    }
+//                    var showDialog by remember { mutableStateOf(true) }
+//                    val pokemonCombat = PokemonCombat("Pikachu", "Gengar")
+//
+//                    MyCustomDialog(
+//                        pokemonCombat = pokemonCombat,
+//                        showDialog = showDialog
+//                    ) {
+//                        showDialog = false
+//                    }
                 }
             }
         }

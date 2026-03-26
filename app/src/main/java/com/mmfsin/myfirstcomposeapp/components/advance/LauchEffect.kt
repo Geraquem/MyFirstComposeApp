@@ -1,0 +1,37 @@
+package com.mmfsin.myfirstcomposeapp.components.advance
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
+
+@Composable
+fun MyLaunchEffect(modifier: Modifier = Modifier, onFinish: () -> Unit) {
+    var timeLeft by remember { mutableIntStateOf(5) }
+
+
+    /** Se ejecuta cada vez que las variables (timeLeft) cambia */
+    LaunchedEffect(timeLeft) {
+        if (timeLeft > 0) {
+            delay(1000)
+            timeLeft--
+        } else onFinish()
+    }
+
+    /** Sólo se ejecuta una vez con el composable */
+    LaunchedEffect(Unit) { }
+
+    Box(modifier.size(150.dp), contentAlignment = Alignment.Center) {
+        Text(text = if (timeLeft > 0) timeLeft.toString() else "BOOOOM", fontSize = 30.sp)
+    }
+}
