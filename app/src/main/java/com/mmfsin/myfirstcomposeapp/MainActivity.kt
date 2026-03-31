@@ -30,7 +30,7 @@ import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
-import com.mmfsin.myfirstcomposeapp.components.advance.MyDerivatedState
+import com.mmfsin.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 import kotlinx.coroutines.launch
 
@@ -42,8 +42,10 @@ class MainActivity : ComponentActivity() {
             MyFirstComposeAppTheme {
 //                ScaffoldExample()
 
-                Scaffold { innerPadding ->
-                    MyDerivatedState(modifier = Modifier.padding(innerPadding))
+                NavigationWrapper()
+
+//                Scaffold { innerPadding ->
+//                    MyGridList(modifier = Modifier.padding(innerPadding))
 
 //                    var showDialog by remember { mutableStateOf(true) }
 //                    val pokemonCombat = PokemonCombat("Pikachu", "Gengar")
@@ -54,7 +56,7 @@ class MainActivity : ComponentActivity() {
 //                    ) {
 //                        showDialog = false
 //                    }
-                }
+//                }
             }
         }
     }
