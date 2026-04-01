@@ -5,7 +5,6 @@ package com.mmfsin.myfirstcomposeapp.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.RangeSlider
@@ -23,9 +22,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PREVIEW() {
+fun PVMySlider() {
     MySlider(Modifier)
 }
 
@@ -33,17 +32,23 @@ fun PREVIEW() {
 fun MySlider(modifier: Modifier) {
     var myValue by remember { mutableFloatStateOf(0f) }
     var text by remember { mutableStateOf("") }
-    Column(modifier.padding(24.dp)) {
+    Column(modifier.padding(12.dp)) {
         Slider(
             value = myValue,
             onValueChange = { myValue = it },
             onValueChangeFinished = { text = "Fin" }
         )
-        Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceAround) {
+        Row(horizontalArrangement = Arrangement.SpaceAround) {
             Text(myValue.toString())
             Text(text)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyAdvancedSlider() {
+    AdvancedSlider(Modifier)
 }
 
 @Composable
@@ -58,15 +63,21 @@ fun AdvancedSlider(modifier: Modifier) {
     }
     Column(modifier.padding(24.dp)) {
         Slider(state)
-        Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceAround) {
+        Row(horizontalArrangement = Arrangement.SpaceAround) {
             Text(state.value.toString())
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyRangeSlider() {
+    MyRangeSlider(Modifier)
+}
+
 @Composable
 fun MyRangeSlider(modifier: Modifier) {
-    var state = remember {
+    val state = remember {
         RangeSliderState(
             activeRangeStart = 3f,
             activeRangeEnd = 6f,
@@ -76,33 +87,7 @@ fun MyRangeSlider(modifier: Modifier) {
         )
     }
 
-    Column(modifier.padding(30.dp)) {
+    Column(modifier.padding(12.dp)) {
         RangeSlider(state = state)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

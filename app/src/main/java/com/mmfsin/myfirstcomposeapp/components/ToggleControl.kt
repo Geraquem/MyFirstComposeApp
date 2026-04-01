@@ -3,8 +3,6 @@ package com.mmfsin.myfirstcomposeapp.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
@@ -30,11 +28,15 @@ import androidx.compose.ui.unit.dp
 import com.mmfsin.myfirstcomposeapp.R
 import com.mmfsin.myfirstcomposeapp.components.state.CheckBoxState
 
+@Preview(showBackground = true)
+@Composable
+fun PVMySwitch() {
+    MySwitch(Modifier)
+}
+
 @Composable
 fun MySwitch(modifier: Modifier) {
-    Column(
-        modifier.fillMaxSize()
-    ) {
+    Column(modifier) {
         var state by remember { mutableStateOf(true) }
         Switch(
             checked = state,
@@ -65,6 +67,13 @@ fun MySwitch(modifier: Modifier) {
     }
 }
 
+
+@Preview(showBackground = true)
+@Composable
+fun PVCheckBoxes() {
+    ParentCheckBoxes(Modifier)
+}
+
 @Composable
 fun ParentCheckBoxes(modifier: Modifier) {
     var state by remember {
@@ -76,7 +85,7 @@ fun ParentCheckBoxes(modifier: Modifier) {
             )
         )
     }
-    Column(modifier.fillMaxSize()) {
+    Column(modifier.padding(horizontal = 16.dp)) {
         state.forEach { myState ->
             CheckBoxWithText(checkBoxState = myState) {
                 state = state.map {
@@ -108,12 +117,6 @@ fun CheckBoxWithText(
 
         Text(checkBoxState.label)
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun previewFunction() {
-    MyRadioButtonList(Modifier.padding(24.dp))
 }
 
 @Composable
@@ -159,6 +162,12 @@ fun TriStateCheckBox(modifier: Modifier) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyRadioButton() {
+    MyRadioButton(Modifier.padding(horizontal = 16.dp))
+}
+
 @Composable
 fun MyRadioButton(modifier: Modifier) {
     var state by remember { mutableStateOf(false) }
@@ -174,10 +183,16 @@ fun MyRadioButton(modifier: Modifier) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyRadioButtonList() {
+    MyRadioButtonList(Modifier)
+}
+
 @Composable
 fun MyRadioButtonList(modifier: Modifier) {
     var selectedName by remember { mutableStateOf("") }
-    Column(modifier.padding(24.dp)) {
+    Column(modifier.padding(0.dp)) {
         RadioButtonComponent("Nombre 1", selectedName) { selectedName = it }
         RadioButtonComponent("Nombre 2", selectedName) { selectedName = it }
         RadioButtonComponent("Nombre 3", selectedName) { selectedName = it }
@@ -188,7 +203,7 @@ fun MyRadioButtonList(modifier: Modifier) {
 @Composable
 fun RadioButtonComponent(name: String, selectedName: String, onItemSelected: (String) -> Unit) {
     Row(
-        modifier = Modifier.clickable { onItemSelected(name) }.fillMaxWidth(),
+        modifier = Modifier.clickable { onItemSelected(name) }.padding(horizontal = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(selected = name == selectedName, onClick = { onItemSelected(name) })

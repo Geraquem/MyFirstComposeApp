@@ -30,7 +30,7 @@ import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
-import com.mmfsin.myfirstcomposeapp.components.navigation.NavigationWrapper
+import com.mmfsin.myfirstcomposeapp.state.MyState
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 import kotlinx.coroutines.launch
 
@@ -42,9 +42,11 @@ class MainActivity : ComponentActivity() {
             MyFirstComposeAppTheme {
 //                ScaffoldExample()
 
-                NavigationWrapper()
+//                NavigationWrapper()
 
-//                Scaffold { innerPadding ->
+                Scaffold { innerPadding ->
+                    MyState(Modifier.padding(innerPadding))
+
 //                    MyGridList(modifier = Modifier.padding(innerPadding))
 
 //                    var showDialog by remember { mutableStateOf(true) }
@@ -56,7 +58,7 @@ class MainActivity : ComponentActivity() {
 //                    ) {
 //                        showDialog = false
 //                    }
-//                }
+                }
             }
         }
     }

@@ -20,8 +20,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyCard() {
+    MyCard(Modifier)
+}
 
 @Composable
 fun MyCard(modifier: Modifier = Modifier) {
@@ -46,6 +53,12 @@ fun MyCard(modifier: Modifier = Modifier) {
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyElevatedCard() {
+    MyElevatedCard(Modifier)
 }
 
 @Composable

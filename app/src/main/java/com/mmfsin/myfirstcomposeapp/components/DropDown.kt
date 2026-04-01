@@ -20,10 +20,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.mmfsin.myfirstcomposeapp.R
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyExposedDropDownMenu() {
+    MyExposedDropDownMenu(Modifier)
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -78,6 +85,12 @@ fun MyExposedDropDownMenu(modifier: Modifier) {
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyDropDownMenu() {
+    MyDropDownMenu(Modifier)
 }
 
 @Composable

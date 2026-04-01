@@ -20,6 +20,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mmfsin.myfirstcomposeapp.R
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyButtons() {
+    MyButtons(Modifier)
+}
+
 @Composable
 fun MyButtons(modifier: Modifier) {
     Column(modifier) {
@@ -67,7 +73,7 @@ fun MyButtons(modifier: Modifier) {
 
 @Preview
 @Composable
-fun PPP() {
+fun PVMyFloatingActionButton() {
     MyFloatingActionButton { }
 }
 

@@ -32,10 +32,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.mmfsin.myfirstcomposeapp.R
 import com.mmfsin.myfirstcomposeapp.components.model.PokemonCombat
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyAlertDialog() {
+    MyAlertDialog(Modifier)
+}
 
 @Composable
 fun MyAlertDialog(modifier: Modifier = Modifier) {
@@ -55,11 +62,17 @@ fun MyAlertDialog(modifier: Modifier = Modifier) {
         )
     }
 
-    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(contentAlignment = Alignment.Center) {
         Button(onClick = { showDialog != showDialog }) {
             Text("Open Alert dialog")
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyDateDialog() {
+    MyDateDialog(Modifier)
 }
 
 @Composable
@@ -100,6 +113,14 @@ fun MyDateDialog(modifier: Modifier) {
     }
 }
 
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyTimePicker() {
+    MyTimePicker(Modifier)
+}
+
+
 @Composable
 fun MyTimePicker(modifier: Modifier = Modifier) {
     val timePickerState = rememberTimePickerState(
@@ -118,6 +139,11 @@ fun MyTimePicker(modifier: Modifier = Modifier) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyCustomDialog() {
+    MyCustomDialog(PokemonCombat("Pikachu", "Charmander"), true) {}
+}
 
 @Composable
 fun MyCustomDialog(

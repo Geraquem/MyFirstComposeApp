@@ -8,13 +8,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.mmfsin.myfirstcomposeapp.R
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyBadge() {
+    MyBadge(Modifier)
+}
 
 @Composable
 fun MyBadge(modifier: Modifier = Modifier) {
     Badge(modifier, contentColor = Color.Yellow, containerColor = Color.Red) {
         Text("5")
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyBadgeBox() {
+    MyBadgeBox(Modifier)
 }
 
 @Composable

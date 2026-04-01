@@ -24,12 +24,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyProgressBar() {
+    MyProgressBar(Modifier)
+}
 
 @Composable
 fun MyProgressBar(modifier: Modifier) {
     Column(
-        modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

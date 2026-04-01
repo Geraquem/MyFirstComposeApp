@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
@@ -36,17 +35,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mmfsin.myfirstcomposeapp.R
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyBasicList() {
+    MyBasicList(Modifier) {}
+}
+
 @Composable
 fun MyBasicList(modifier: Modifier = Modifier, onItemClick: (String) -> Unit) {
     val names = listOf("Nombre 1", "Nombre 2", "Nombre 3")
 
-    LazyColumn(modifier) {
+    LazyColumn(modifier.padding(24.dp)) {
 //        for (i in 1..100) {
 //            item { Text(text = "Nombre $i") }
 //        }
@@ -55,6 +61,12 @@ fun MyBasicList(modifier: Modifier = Modifier, onItemClick: (String) -> Unit) {
     }
 
     LazyRow() { }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PVMyAdvancedList() {
+    MyAdvancedList(Modifier)
 }
 
 @Composable
@@ -84,6 +96,12 @@ fun MyAdvancedList(modifier: Modifier = Modifier) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyScrollList() {
+    MyScrollList(Modifier)
+}
+
 @Composable
 fun MyScrollList(modifier: Modifier = Modifier) {
     val listState = rememberLazyListState()
@@ -109,6 +127,12 @@ fun MyScrollList(modifier: Modifier = Modifier) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PVMyGridList() {
+    MyGridList(Modifier)
+}
+
 @Composable
 fun MyGridList(modifier: Modifier = Modifier) {
     val numbers = remember { mutableStateOf(List(50) { Random.nextInt(0, 6) }) }
@@ -120,7 +144,7 @@ fun MyGridList(modifier: Modifier = Modifier) {
 //        rows = GridCells.FixedSize(3),
     LazyVerticalGrid(
         columns = GridCells.Adaptive(80.dp),
-        modifier = modifier.padding(8.dp).fillMaxSize(),
+        modifier = modifier.padding(8.dp),
         contentPadding = PaddingValues(8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
