@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import com.mmfsin.myfirstcomposeapp.components.navigation.examples.models.SettingModel
 
 @Composable
-fun SettingsScreen(settingModel: SettingModel) {
+fun SettingsScreen(settingModel: SettingModel, navigateToHome: () -> Unit) {
     Column(
         Modifier.fillMaxSize().background(Color.Magenta),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -26,7 +26,7 @@ fun SettingsScreen(settingModel: SettingModel) {
             fontSize = 30.sp
         )
         Spacer(Modifier.weight(1f))
-        Button({ }) {
+        Button({ navigateToHome() }) {
             Text("Volver al inicio")
         }
         Spacer(Modifier.weight(1f))

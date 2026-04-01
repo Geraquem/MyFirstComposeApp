@@ -10,7 +10,7 @@ import com.mmfsin.myfirstcomposeapp.components.navigation.examples.HomeScreen
 import com.mmfsin.myfirstcomposeapp.components.navigation.examples.LoginScreen
 import com.mmfsin.myfirstcomposeapp.components.navigation.examples.SettingsScreen
 import com.mmfsin.myfirstcomposeapp.components.navigation.examples.models.SettingModel
-import com.mmfsin.myfirstcomposeapp.components.navigation.types.settingModelType
+import com.mmfsin.myfirstcomposeapp.components.navigation.types.createNavType
 import kotlin.reflect.typeOf
 
 @Composable
@@ -36,9 +36,14 @@ fun NavigationWrapper() {
             )
         }
 
-        composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to settingModelType)) { data ->
+        composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to createNavType<SettingModel>())) { data ->
             val settings = data.toRoute<Settings>()
-            SettingsScreen(settings.settingModel)
+            SettingsScreen(
+                settingModel = settings.settingModel,
+                navigateToHome = {
+                    navController.navigate(Login) { popUpTo<Login> { inclusive = true } }
+                }
+            )
         }
     }
 }
