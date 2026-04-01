@@ -26,7 +26,7 @@ import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mmfsin.myfirstcomposeapp.R
-import com.mmfsin.myfirstcomposeapp.components.state.CheckBoxState
+import com.mmfsin.myfirstcomposeapp.components.model.CheckBoxState
 
 @Preview(showBackground = true)
 @Composable

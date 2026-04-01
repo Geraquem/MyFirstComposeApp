@@ -22,7 +22,7 @@ fun MyDerivatedState(modifier: Modifier = Modifier) {
     var password by remember { mutableStateOf("") }
 
     /** No actualizar el compose hasta que las condiciones de las variables de los parametros
-        cumplan lo que se les ordena
+    cumplan lo que se les ordena
      */
     val isFormValid by remember(email, password) {
         derivedStateOf {

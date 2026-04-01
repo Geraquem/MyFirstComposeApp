@@ -30,7 +30,7 @@ import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
-import com.mmfsin.myfirstcomposeapp.state.MyState
+import com.mmfsin.myfirstcomposeapp.components.state.MyState
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 import kotlinx.coroutines.launch
 

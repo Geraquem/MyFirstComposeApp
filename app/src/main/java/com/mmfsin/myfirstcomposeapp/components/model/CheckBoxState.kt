@@ -1,4 +1,4 @@
-package com.mmfsin.myfirstcomposeapp.components.state
+package com.mmfsin.myfirstcomposeapp.components.model
 
 data class CheckBoxState(
     var id: String,
