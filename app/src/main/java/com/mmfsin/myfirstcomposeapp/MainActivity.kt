@@ -30,7 +30,8 @@ import com.mmfsin.myfirstcomposeapp.components.MyBottomNavBar
 import com.mmfsin.myfirstcomposeapp.components.MyFloatingActionButton
 import com.mmfsin.myfirstcomposeapp.components.MyNavigationDrawer
 import com.mmfsin.myfirstcomposeapp.components.MyTopAppBar
-import com.mmfsin.myfirstcomposeapp.components.state.MyState
+import com.mmfsin.myfirstcomposeapp.components.animations.MyAnimatedContentSize
+import com.mmfsin.myfirstcomposeapp.components.animations.MyInfiniteTransition
 import com.mmfsin.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 import kotlinx.coroutines.launch
 
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
 //                NavigationWrapper()
 
                 Scaffold { innerPadding ->
-                    MyState(Modifier.padding(innerPadding))
+                    MyInfiniteTransition(Modifier.padding(innerPadding))
 
 //                    MyGridList(modifier = Modifier.padding(innerPadding))
 
